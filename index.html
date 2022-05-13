@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+
+
+<main>
+    <!--
+    更新：boom 特效
+    -->
+    <div class="jumbotron">
+        <h1>独具js风格的2048
+
+        </h1>
+        <div>
+            <p id="showNumberBlock"></p>
+            <span class="box undefinedBox">undefined</span>
+            <span class="box InfBox">∞</span>
+            <span class="box NaNBox">NaN</span>
+            <span class="box nullBox">null</span>
+
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <p>这是littlefean用js语言做的2048小游戏，对原版2048的规则和内容有所更新</p>
+        <p> 绝对值相同的数字可以相互通过加法的方式合并，如果合并成0则消失 </p>
+        <p>NaN是一种障碍物，它和任何数字都不能合并，包括它自己</p>
+        <p>最终分数=每个数字（除了NaN）的三次方之和</p>
+        <p>电脑端方向键可以控制进行滑动，手机端可以按住棋盘上下左右滑动屏幕松开来控制上下左右移动操作</p>
+        <p>所有参数可以自行调整</p>
+        <p>NULL相当于棋盘中损坏的弹坑，会阻碍其他方块的正常移动</p>
+        <p>两个undefined合并会产生强大的力量，合并后清除全部NaN并生成一个Infinity</p>
+        <p>两个Infinity合并后会爆炸，清除场地中所有比1024小的数字，并在原地留下一个NULL</p>
+        <br>
+    </div>
+    <label>
+        NaN出现概率设置：
+        <input type="range" value="5" min="0" max="100" id="NaNRateEle">
+        负数出现概率设置：
+        <input type="range" value="10" min="0" max="100" id="negRateEle">
+        NULL出现概率设置：
+        <input type="range" value="1" min="0" max="100" id="nullRateEle">
+        undefined出现概率设置：
+        <input type="range" value="1" min="0" max="100" id="undefinedRateEle">
+        一次操作新增块数: <input type="Number" value="2" min="1" id="countEle">
+        棋盘宽 <input type="Number" value="10" min="4" id="widthEle">
+        棋盘高 <input type="Number" value="10" min="4" id="heightEle">
+        <select id="modeEle">
+            <option value="man">自己玩</option>
+            <option value="ai">看AI乱刷</option>
+        </select>
+        <button class="btn btn-default btn-lg" id="playEle">更新规则并开始！</button>
+    </label>
+    <br>
+
+    <button class="btn btn-default btn-lg" id="left">left</button>
+    <button class="btn btn-default btn-lg" id="right">right</button>
+    <button class="btn btn-default btn-lg" id="top">top</button>
+    <button class="btn btn-default btn-lg" id="down">down</button>
+
+    <div class="gameRange">
+        <p>score：<span id="score"></span> 发生了<span id="mergeScore"></span>次合并</p>
+        <div class="gameBoard"></div>
+    </div>
+
+</main>
+
+</body>
+<script src="js/board.js"></script>
+<script src="js/index.js"></script>
+</html>
